@@ -11,7 +11,7 @@ class CBOR::CRI
 
   attr_accessor :scheme, :authority, :discard, :path, :query, :fragment
 
-  def discard?(d)
+  def discard?(d = discard)
     true == d || (Integer === d && d >= 0)
   end
 
@@ -59,7 +59,7 @@ class CBOR::CRI
   # copy?
 
   def check
-
+    # TBD
   end
 
   def merge(other)
@@ -79,13 +79,13 @@ class CBOR::CRI
       end
     end
     if other.scheme
-      ret.scheme = other.scheme 
+      ret.scheme = other.scheme
       ret.authority = other.authority
     else
       ret.authority = other.authority if other.authority
     end
     if other.query
-      ret.query = other.query 
+      ret.query = other.query
       ret.fragment = nil
     end
     ret.fragment = other.fragment if other.fragment

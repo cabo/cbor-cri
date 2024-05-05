@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "cbor-cri"
-  s.version = "0.0.1"
+  s.version = "0.0.3"
   s.summary = "CBOR (Concise Binary Object Representation) diagnostic notation"
   s.description = %q{cbor-cri implements CBOR constrained resource identifiers, draft-ietf-core-href}
   s.author = "Carsten Bormann"
