@@ -119,7 +119,7 @@ class CBOR::CRI
     end
     if fragment
       ret << "#"
-      ret << fragment
+      ret << Array(fragment).join("") # XXX PET workaround
     end
     ret
   end
@@ -154,7 +154,7 @@ class CBOR::CRI
       if Array === authority
         p = authority.last
         host_a = authority[0...-1] if Integer === p
-        return host_a.join(".") if host_a.first.encoding != Encoding::BINARY
+        return host_a.join(".") unless String === host_a.first && host_a.first.encoding == Encoding::BINARY
         n_to_a(host_a.first)
       end
     end
